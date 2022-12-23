@@ -1,12 +1,16 @@
 Package: convertr
-Title: What the Package Does (One Line, Title Case)
+Title: Convert Between Quarto, RMarkdown, and R Scripts
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Martina", "Sladekova", , "m.sladekova@outlook.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-5059-6576"))
+Description: A package for conversion between Quarto, RMarkdown and R scripts. When converting from Rmd to Qmd, global knitr options are taken from the setup chunk and moved into the YAML. For html documents, the `self-contained: true` option is added. 
+License: MIT + file LICENSE
+Imports: 
+  rlang,
+  dplyr,
+  stringr,
+  tidyr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
