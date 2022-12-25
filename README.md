@@ -1,16 +1,23 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# convertr
+# `convertr`
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-> ⚠️ Warning
->
-> Test warning
+The purpose of `convertr` is to automate converting between R scripts,
+RMarkdown files and Quarto files with, focusing on managing code-chunks,
+code comments, and the differences in YAML options between .qmd and .rmd
+files.
 
-description
+> ⚠️ Warning  
+> This package is currently under development and may only work as
+> intended in a limited number of situations. As with all R functions
+> that write files, `convertr` will not check for duplicate files and
+> will automatically overwrite files in the output directory if an
+> output file with the name already exists. Test on a back-up copy of
+> your file before using.
 
 ## Installation
 
@@ -22,38 +29,57 @@ You can install the development version of convertr from
 devtools::install_github("martinasladek/convertr")
 ```
 
-## Example
+## Functions
 
-This is a basic example which shows you how to solve a common problem:
+The package currently three main functions:
+
+-   `qmd_to_r()`: Convert a .qmd file into a .R file. Headings are
+    converted into section titles (e.g `# heading -----` as defined by
+    the the shortcut ctrl/cmd + shift + R). Text outside of code chunks
+    is converted into comments. Chunk options defined by `#|` are
+    retained as comments.  
+-   `r_to_qmd()`: Convert a .R file into a .qmd file. Section titles are
+    converted into headings (e.g `# heading -----` as defined by the the
+    shortcut ctrl/cmd + shift + R). Comments are converted into text in
+    between code chunks (unless the comments are within the code, in
+    which case they stay inside of the code chunk).  
+-   `knitr_opts_to_yaml()`: Take an existing .rmd file and convert its
+    YAML header options to be compatible with Quarto. Currently minimal
+    functionality. html output options are automatically set to
+    `self-contained: TRUE`. Underscores are replaced with hyphens for
+    all other options.
+
+## Examples
+
+Load `convenr`
 
 ``` r
 library(convertr)
-## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+Convert Quarto into an R script:
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+convertr::qmd_to_r(
+  input_dir = "path/to/some_quarto_file.qmd",
+  output_dir = "path/to/new_converted_r_script.R"
+)
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
+Convert an R script into a Quarto file:
 
-You can also embed plots, for example:
+``` r
+convertr::r_to_qmd(
+  input_dir = "path/to/some_R_script.R",
+  output_dir = "path/to/new_converted_qmd_file.qmd"
+)
+```
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+Convert an RMarkdown chunk options into a Quarto YAML header:
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+``` r
+convertr::knitr_opts_to_yaml(
+  input_dir = "path/to/some_an_old_rmd_file.rmd",
+  output_dir = "path/to/new_qmd_file.qmd"
+)
+```
