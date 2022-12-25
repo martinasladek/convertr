@@ -7,9 +7,11 @@ Authors@R:
 Description: A package for conversion between Quarto, RMarkdown and R scripts. When converting from Rmd to Qmd, global knitr options are taken from the setup chunk and moved into the YAML. For html documents, the `self-contained: true` option is added. 
 License: MIT + file LICENSE
 Imports: 
-  rlang,
   dplyr,
+  purrr,
+  rlang,
   stringr,
+  tibble,
   tidyr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

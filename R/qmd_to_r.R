@@ -1,6 +1,6 @@
 #' Convert a Quarto file into an R script
 #'
-#' @description Convert a .qmd file into a .R file. Headings are converted into section titles (e.g `# heading -----` as defined bu the the shortcut ctrl/cmd + shift + R). Text outside of code chunks is converted into comments. Chunk options defined by `#|` are retained as comments.
+#' @description Convert a .qmd file into a .R file. Headings are converted into section titles (e.g `# heading -----` as defined by the the shortcut ctrl/cmd + shift + R). Text outside of code chunks is converted into comments. Chunk options defined by `#|` are retained as comments.
 #'
 #' @param input_dir Directory of the qmd file that you want to convert
 #' @param output_dir Output directory for the new R script

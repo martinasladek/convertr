@@ -15,7 +15,7 @@ qmd_to_r(input_dir, output_dir)
 A .qmd file
 }
 \description{
-Convert a .qmd file into a .R file. Headings are converted into section titles (e.g \verb{# heading -----} as defined bu the the shortcut ctrl/cmd + shift + R). Text outside of code chunks is converted into comments. Chunk options defined by \verb{#|} are retained as comments.
+Convert a .qmd file into a .R file. Headings are converted into section titles (e.g \verb{# heading -----} as defined by the the shortcut ctrl/cmd + shift + R). Text outside of code chunks is converted into comments. Chunk options defined by \verb{#|} are retained as comments.
 }
 \examples{
  \dontrun{
