@@ -52,7 +52,7 @@ The package currently three main functions:
 
 ## Examples
 
-Load `convenr`
+Load `convertr`:
 
 ``` r
 library(convertr)
