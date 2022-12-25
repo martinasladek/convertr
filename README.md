@@ -80,7 +80,7 @@ Convert an RMarkdown chunk options into a Quarto YAML header:
 
 ``` r
 convertr::knitr_opts_to_yaml(
-  input_dir = "path/to/some_an_old_rmd_file.rmd",
+  input_dir = "path/to/some_old_rmd_file.rmd",
   output_dir = "path/to/new_qmd_file.qmd"
 )
 ```
