@@ -16,14 +16,14 @@ knitr::opts_chunk$set(
 # `convertr`
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
-The purpose of `convertr` is to automate converting between R scripts, RMarkdown files and Quarto files with, focusing on managing code-chunks, code comments, and the differences in YAML options between .qmd and .rmd files. 
+The purpose of `convertr` is to automate converting between R scripts, RMarkdown files and Quarto files with, focusing on managing code-chunks, code comments, and the differences in YAML options between .qmd and .rmd files.
 
-> **Warning**   
+> ⚠️ **Warning**
 >
-> This package is currently under development and may only work as intended in a limited number of situations. As with all R functions that write files, `convertr` will not check for duplicate files and will automatically overwrite files in the output directory if an output file with the name already exists. Test on a back-up copy of your file before using.  
-
+> This package is currently under development and may only work as intended in a limited number of situations. As with all R functions that write files, `convertr` will not check for duplicate files and will automatically overwrite files in the output directory if an output file with the name already exists. Test on a back-up copy of your file before using.
 
 ## Installation
 
@@ -36,11 +36,11 @@ devtools::install_github("martinasladek/convertr")
 
 ## Functions
 
-The package currently three main functions: 
+The package currently three main functions:
 
-- `qmd_to_r()`: Convert a .qmd file into a .R file. Headings are converted into section titles (e.g `# heading -----` as defined by the the shortcut ctrl/cmd + shift + R). Text outside of code chunks is converted into comments. Chunk options defined by `#|` are retained as comments.  
-- `r_to_qmd()`: Convert a .R file into a .qmd file. Section titles are converted into headings (e.g `# heading -----` as defined by the the shortcut ctrl/cmd + shift + R). Comments are converted into text in between code chunks (unless the comments are within the code, in which case they stay inside of the code chunk).  
-- `knitr_opts_to_yaml()`: Take an existing .rmd file and convert its YAML header options to be compatible with Quarto. Currently minimal functionality. html output options are automatically set to `self-contained: TRUE`. Underscores are replaced with hyphens for all other options.
+-   `qmd_to_r()`: Convert a .qmd file into a .R file. Headings are converted into section titles (e.g `# heading -----` as defined by the the shortcut ctrl/cmd + shift + R). Text outside of code chunks is converted into comments. Chunk options defined by `#|` are retained as comments.\
+-   `r_to_qmd()`: Convert a .R file into a .qmd file. Section titles are converted into headings (e.g `# heading -----` as defined by the the shortcut ctrl/cmd + shift + R). Comments are converted into text in between code chunks (unless the comments are within the code, in which case they stay inside of the code chunk).\
+-   `knitr_opts_to_yaml()`: Take an existing .rmd file and convert its YAML header options to be compatible with Quarto. Currently minimal functionality. html output options are automatically set to `self-contained: TRUE`. Underscores are replaced with hyphens for all other options.
 
 ## Examples
 
@@ -50,7 +50,7 @@ Load `convenr`
 library(convertr)
 ```
 
-Convert Quarto into an R script: 
+Convert Quarto into an R script:
 
 ```{r eval = FALSE}
 convertr::qmd_to_r(
@@ -68,7 +68,7 @@ convertr::r_to_qmd(
 )
 ```
 
-Convert an RMarkdown chunk options into a Quarto YAML header: 
+Convert an RMarkdown chunk options into a Quarto YAML header:
 
 ```{r  eval = FALSE}
 convertr::knitr_opts_to_yaml(
@@ -76,6 +76,3 @@ convertr::knitr_opts_to_yaml(
   output_dir = "path/to/new_qmd_file.qmd"
 )
 ```
-
-
-
