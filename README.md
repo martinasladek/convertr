@@ -11,7 +11,8 @@ RMarkdown files and Quarto files with, focusing on managing code-chunks,
 code comments, and the differences in YAML options between .qmd and .rmd
 files.
 
-> ⚠️ Warning  
+> ⚠️ Warning
+>
 > This package is currently under development and may only work as
 > intended in a limited number of situations. As with all R functions
 > that write files, `convertr` will not check for duplicate files and

@@ -21,6 +21,7 @@ knitr::opts_chunk$set(
 The purpose of `convertr` is to automate converting between R scripts, RMarkdown files and Quarto files with, focusing on managing code-chunks, code comments, and the differences in YAML options between .qmd and .rmd files. 
 
 > ⚠️ Warning   
+>
 > This package is currently under development and may only work as intended in a limited number of situations. As with all R functions that write files, `convertr` will not check for duplicate files and will automatically overwrite files in the output directory if an output file with the name already exists. Test on a back-up copy of your file before using.  
 
 
