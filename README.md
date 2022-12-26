@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# `convertr`
+# convertr <a href='https://github.com/martinasladek/convertr'><img src='man/figures/logo.png' align="right" hspace="20"  height="139" /></a>
 
 <!-- badges: start -->
 <!-- badges: end -->
